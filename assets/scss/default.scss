@@ -1,0 +1,105 @@
+body, html,
+h1, h2, h3,
+h4, h5, h6, 
+ul, ol, li, 
+dl, dt, dd, 
+p, hr{
+  margin: 0;
+  padding: 0;
+}
+ul, ol{
+  list-style: none;
+}
+body,
+html{
+  font-family: Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-size: 100px;
+  
+}
+a{
+  text-decoration: none;
+
+  &:hover, 
+  &:active, 
+  &:link, 
+  &:visited{
+    text-decoration: none;
+  }
+}
+
+dt{
+  font-weight: normal;
+}
+
+// opacity
+@mixin opacity($opacity){
+  opacity: $opacity;
+  $opacity-id:$opacity * 100;
+  filter:Alpha(opacity=$opacity-id); //IE8
+}
+
+// border-radius
+@mixin border-radius($angle){
+  -webkit-border-radius: $angle;
+  -moz-border-radius: $angle;
+  border-radius: $angle;
+}
+
+// animation
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+  @-moz-keyframes #{$animation-name} {
+    @content;
+  }  
+  @-ms-keyframes #{$animation-name} {
+    @content;
+  }
+  @-o-keyframes #{$animation-name} {
+    @content;
+  }  
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}
+
+@mixin animation($str) {
+  -webkit-animation: #{$str};
+  -moz-animation: #{$str};
+  -o-animation: #{$str};
+  animation: #{$str};      
+}
+
+// transform
+
+@mixin transform($parameter){
+    -webkit-transform: $parameter;
+    -ms-transform: $parameter;
+    -o-transform: $parameter;
+    transform: $parameter;
+}
+
+// transition
+
+@mixin transition($parameter){
+    -webkit-transition: $parameter;
+    -o-transition: $parameter;
+    transition: $parameter;
+}
+
+// oneRow
+%oneRow {
+  width: 100%;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+
+// media
+@mixin media($width) {
+    @media screen and (max-width: #{$width}) {
+        @content;
+    }
+}

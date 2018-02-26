@@ -1,0 +1,154 @@
+@import './default';
+
+$red: #dc3545;
+.container {
+    font-size: 0;
+}
+.headline {
+    margin: 0;
+    padding: .2rem 0 .1rem;
+    text-align: center;
+    color: #333;
+    font-size: .5rem;
+}
+.main {
+    li {
+        list-style: decimal inside;
+        font-size: .2rem;
+        padding: {
+            top: .1rem;
+        }
+
+        @media print {
+            font-size: .26rem;
+        }
+
+        &.z-right,
+        &.z-error {
+            &:after {
+                content: '';
+                display: inline-block;
+                width: .2rem;
+                height: .2rem;
+            }
+        }
+        &.z-right {
+            &:after {
+                background: url("../img/icon.png") right center/auto 100% no-repeat;
+            }
+        }
+        &.z-error {
+            &:after {
+                background: url("../img/icon.png") left center/auto 100% no-repeat;
+            }
+        }
+    
+        span,
+        input {
+            display: inline-block;
+            font-weight: bold;
+        }
+
+        input {
+            width: .5rem;
+            padding: {
+                left: .05rem;
+            }
+            border: none;
+            line-height: 1;
+
+            &:focus {
+                outline: 0;
+            }
+
+            @media print {
+                display: none;
+            }
+        }
+
+        span{
+            &:nth-child(2) {
+                padding: 0 .04rem;
+            }
+        }
+    }
+}
+.time,
+.mistake,
+.computation {
+    font-size: .2rem;
+
+    @media print {
+        display: none;
+    }
+
+    big {
+        text-transform: capitalize;
+        font-weight: bold;
+    }
+
+    span {
+        font-size: .3rem;
+        font-weight: bold;
+        color: $red;
+
+        
+    }
+}
+.time {
+    span {
+        &:nth-child(2),
+        &:nth-child(4) {
+            font-size: .25rem;
+        }
+    }
+}
+.computation {
+    span {
+        display: inline-block;
+        margin: {
+            top: 0;
+        }
+        padding: {
+            right: .04rem;
+            left: .04rem;
+        }
+        text-transform: capitalize;
+        font-size: .2rem;
+        color: #333;
+        cursor: pointer;
+
+        &:hover,
+        &.z-current {
+            color: $red;
+        }
+
+        &.z-current {
+            text-decoration: underline;
+        }
+    }
+}
+.btn {
+    margin: {
+        top: .1rem;
+    }
+    padding: .02rem .3rem;
+    font-size: .2rem;
+
+    @media print {
+        display: none;
+    }
+
+    &.btn-info {
+        margin: {
+            bottom: .3rem;            
+        }
+    }
+}
+
+.btn-info {
+    &:focus,
+    &:not(:disabled):not(.disabled):active:focus{
+        box-shadow: none;
+    }
+}
